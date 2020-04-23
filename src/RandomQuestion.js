@@ -39,7 +39,11 @@ export default class RandomQuestion extends React.Component {
 
             selectedQuote: {quote: 'Click New Quote To Start'},
 
-            answer: ''
+            answer: '',
+
+            correctAnswers: 0,
+
+            total: 0
         }
     }
 
@@ -47,10 +51,16 @@ export default class RandomQuestion extends React.Component {
         this.setState({
             selectedQuote: this.state.QuoteList[Math.floor(Math.random() * this.state.QuoteList.length)]
         })
+        this.setState({
+            answer: ''
+        })
     }
 
     handleClickMichael = () => {
-        if (this.state.selectedQuote.name === "Michael") { this.setState({ answer: "Correct"}) }
+        if (this.state.selectedQuote.name === "Michael") { 
+            this.setState({ answer: "Correct"});
+            this.setState({ correctAnswers: this.state.correctAnswers + 1})
+        }
         else { this.setState({ answer: "Wrong"}) }
         }
 
@@ -68,7 +78,8 @@ export default class RandomQuestion extends React.Component {
                     <button onClick={this.handleClickMichael}>Michael</button>
                     <button onClick={this.handleClickRicky}>Ricky</button>
                 </div>
-                <p>You are: {this.state.answer}</p>
+                <p>Your answer is: {this.state.answer}</p>
+                <p>Your score is: {this.state.correctAnswers} of {this.state.total} </p>
             </div>
         )
     }
