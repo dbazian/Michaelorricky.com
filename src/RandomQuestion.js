@@ -54,7 +54,7 @@ render() {
     return(
         <div>
         <p>Quote: "{this.state.selectedQuote}"</p>
-        <button onClick={this.handleClick}>Answer</button>
+        <button onClick={this.handleClick}>Quote</button>
         </div>
 
 )}
