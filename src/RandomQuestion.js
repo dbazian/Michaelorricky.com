@@ -59,16 +59,27 @@ export default class RandomQuestion extends React.Component {
     handleClickMichael = () => {
         if (this.state.selectedQuote.name === "Michael") { 
             this.setState({ answer: "Correct"});
-            this.setState({ correctAnswers: this.state.correctAnswers + 1})
+            this.setState({ correctAnswers: this.state.correctAnswers + 1});
+            this.setState({ total: this.state.total + 1})
         }
-        else { this.setState({ answer: "Wrong"}) }
+        else { 
+            this.setState({ answer: "Wrong"});
+            this.setState({ total: this.state.total + 1})
         }
+    }
 
     handleClickRicky = () => {
-        if (this.state.selectedQuote.name === "Ricky") { this.setState({ answer: "Correct"}) }
-        else { this.setState({ answer: "Wrong"}) }
+        if (this.state.selectedQuote.name === "Ricky") { 
+            this.setState({ answer: "Correct"});
+            this.setState({ correctAnswers: this.state.correctAnswers + 1});
+            this.setState({ total: this.state.total + 1})
         }
-
+        else { 
+            this.setState({ answer: "Wrong"});
+            this.setState({ total: this.state.total + 1})
+        }
+    }
+    
     render() {
         return(
             <div>
