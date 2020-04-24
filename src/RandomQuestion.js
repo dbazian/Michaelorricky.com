@@ -1,4 +1,6 @@
 import React from 'react';
+import Mike from "./Images/Michael.jpg";
+import Ricky from "./Images/Ricky.jpg";
 
 export default class RandomQuestion extends React.Component {
     constructor(props) {
@@ -68,95 +70,61 @@ export default class RandomQuestion extends React.Component {
 
             total: 0,
 
-            clickState: 'active' 
+            clickState: 'active',
+
+            finalResults: ''
         }
     }
 
     handleClick = () => {
-        if (this.state.clickState === 'active' && this.state.total <= 9) {
         this.setState({ selectedQuote: this.state.QuoteList[Math.floor(Math.random() * this.state.QuoteList.length)] })
         this.setState({ answer: '' })
         this.setState({ clickState: "not-active" })
-      } else if (this.state.clickState === 'active' && this.state.total === 10) {
+        if (this.state.clickState === 'active' && this.state.total === 10) {
         this.setState({ total: 0});
         this.setState({ correctAnswers: 0});
-        this.setState({ selectedQuote: this.state.QuoteList[Math.floor(Math.random() * this.state.QuoteList.length)] })
-        this.setState({ answer: '' })
-        this.setState({ clickState: "not-active" })
-            }
-        }
-
-    handleClickMichael = () => {
-        if (this.state.selectedQuote.name === "Michael" && this.state.total < 9 && this.state.clickState === "not-active") { 
-            this.setState({ answer: "Correct" });
-            this.setState({ correctAnswers: this.state.correctAnswers + 1 });
-            this.setState({ total: this.state.total + 1 });
-            this.setState({ clickState: "active"});
-        } else if (this.state.selectedQuote.name === "Michael" && this.state.total === 9 && this.state.correctAnswers > 5 && this.state.clickState === "not-active") { 
-            this.setState({ answer: 'Correct' });
-            this.setState({ correctAnswers: this.state.correctAnswers + 1 });
-            this.setState({ total: this.state.total + 1 });
-            this.setState({ clickState: "active"});
-        } else if (this.state.selectedQuote.name === "Michael" && this.state.total === 9 && this.state.correctAnswers <= 5 && this.state.clickState === "not-active") { 
-            this.setState({ answer: 'Correct' });
-            this.setState({ correctAnswers: this.state.correctAnswers + 1  });
-            this.setState({ total: this.state.total + 1 });
-            this.setState({ clickState: "active"});
-        } else if (this.state.selectedQuote.name === "Ricky" && this.state.total < 9 && this.state.clickState === "not-active") {
-            this.setState({ answer: "Wrong"});
-            this.setState({ total: this.state.total + 1 });
-            this.setState({ clickState: "active"});
-        } else if (this.state.selectedQuote.name === "Ricky" && this.state.total === 9 && this.state.correctAnswers > 5 && this.state.clickState === "not-active") { 
-            this.setState({ answer: "Wrong" });
-            this.setState({ total: this.state.total + 1 });
-            this.setState({ clickState: "active"});
-        } else if (this.state.selectedQuote.name === "Ricky" && this.state.total === 9 && this.state.correctAnswers <= 5 && this.state.clickState === "not-active") { 
-            this.setState({ answer: "Wrong" });
-            this.setState({ total: this.state.total + 1 });
-            this.setState({ clickState: "active"});
         }
     }
-    handleClickRicky = () => {
-        if (this.state.selectedQuote.name === "Ricky" && this.state.total < 9 && this.state.clickState === "not-active") { 
+
+    handleClickMichael = () => {
+        this.setState({ total: this.state.total + 1 });
+        this.setState({ clickState: "active"});
+        if (this.state.selectedQuote.name === "Michael" && this.state.clickState === "not-active") { 
             this.setState({ answer: "Correct" });
             this.setState({ correctAnswers: this.state.correctAnswers + 1 });
-            this.setState({ total: this.state.total + 1 });
-            this.setState({ clickState: "active"});
-        } else if (this.state.selectedQuote.name === "Ricky" && this.state.total === 9 && this.state.correctAnswers > 5 && this.state.clickState === "not-active") { 
-            this.setState({ answer: 'Correct' });
-            this.setState({ total: this.state.total + 1 });
-            this.setState({ clickState: "active"});
-        } else if (this.state.selectedQuote.name === "Ricky" && this.state.total === 9 && this.state.correctAnswers <= 5 && this.state.clickState === "not-active") { 
-            this.setState({ answer: 'Correct' });
-            this.setState({ total: this.state.total + 1 });
-            this.setState({ clickState: "active"});
-        } else if (this.state.selectedQuote.name === "Michael" && this.state.total < 9 && this.state.clickState === "not-active") {
+        } else if (this.state.selectedQuote.name === "Ricky" && this.state.clickState === "not-active") {
+            this.setState({ answer: "Wrong"})
+        }
+    }
+
+    handleClickRicky = () => {
+        this.setState({ total: this.state.total + 1 });
+        this.setState({ clickState: "active"});
+        if (this.state.selectedQuote.name === "Ricky" && this.state.clickState === "not-active") { 
+            this.setState({ answer: "Correct" });
+            this.setState({ correctAnswers: this.state.correctAnswers + 1 });
+        } else if (this.state.selectedQuote.name === "Michael" && this.state.clickState === "not-active") { 
             this.setState({ answer: "Wrong"});
-            this.setState({ total: this.state.total + 1});
-            this.setState({ clickState: "active"});
-        } else if (this.state.selectedQuote.name === "Michael" && this.state.total === 9 && this.state.correctAnswers > 5 && this.state.clickState === "not-active") { 
-            this.setState({ answer: "Wrong"});
-            this.setState({ total: this.state.total + 1 });
-            this.setState({ clickState: "active"});
-        } else if (this.state.selectedQuote.name === "Michael" && this.state.total === 9 && this.state.correctAnswers <= 5 && this.state.clickState === "not-active") { 
-            this.setState({ answer: "Wrong" });
-            this.setState({ total: this.state.total + 1 });
-            this.setState({ clickState: "active"});
         }
     }
     
     render() {
-        console.log(this.state.clickState);
         return(
-            <div>
-                <p>Quote: "{this.state.selectedQuote.quote}"</p>
+            <div className="app">
+                <h1>Who Said It? Michael Scott or Ricky</h1>
+                <h2>Best of 10!</h2>
+                <div className="row-container">
+                    <img className="mike" src={Mike} alt="Michael Scott"></img>
+                    <img className="ricky" src={Ricky} alt="Ricky"></img>
+                </div>
+                <p>Next Quote: "{this.state.selectedQuote.quote}"</p>
                 <button onClick={this.handleClick}>New Quote</button>
-                <div className="mikericky-button">
+                <div className="row-container">
                     <button onClick={this.handleClickMichael}>Michael</button>
                     <button onClick={this.handleClickRicky}>Ricky</button>
                 </div>
                 <p>{this.state.answer}</p>
-                <p>Your score is: {this.state.correctAnswers} of {this.state.total} </p>
+                <p>Your score is: {this.state.correctAnswers} of {this.state.total}</p>
             </div>
         )
     }

@@ -24,9 +24,10 @@ html {
       .row-container {
         display: flex;
         justify-content: center;
+        align-items: center;
 
         img {
-          width: 45%;
+          height: 28vh;
           display: inline-block;
         }
 
@@ -50,7 +51,7 @@ html {
 }
 
 button {
-  width: 50%;
+  width: 35%;
   height: 5vh;
   border: black 1px solid;
   box-shadow: 1px 2px;
