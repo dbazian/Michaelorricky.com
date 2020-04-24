@@ -14,7 +14,7 @@ html body .app {
 }
 
 html body .app h1 {
-  font-size: 1.3rem;
+  font-size: 4vw;
   text-align: center;
   margin-top: 3rem;
   margin-bottom: 3rem;
@@ -39,12 +39,22 @@ html body .app .row-container .mike {
 }
 
 html body .app p {
-  font-size: 2rem;
+  font-size: 4vw;
   text-align: center;
   padding: 1rem;
 }
 
-html body .app button {
+html body .app .mikericky-button {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+button {
   width: 50%;
   height: 5vh;
   border: black 1px solid;
