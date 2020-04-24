@@ -20,6 +20,10 @@ html body .app h1 {
   margin-bottom: 3rem;
 }
 
+html body .app h2 {
+  font-size: 3.5vw;
+}
+
 html body .app .row-container {
   display: -webkit-box;
   display: -ms-flexbox;

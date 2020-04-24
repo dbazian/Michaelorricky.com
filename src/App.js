@@ -8,6 +8,7 @@ function App() {
   return (
     <div className="app">
       <h1>Who Said It? Michael Scott or Ricky</h1>
+      <h2>Best of 10!</h2>
       <div className="row-container">
       <img className="mike" src={Mike} alt="Michael Scott"></img>
       <img className="ricky" src={Ricky} alt="Ricky"></img>
