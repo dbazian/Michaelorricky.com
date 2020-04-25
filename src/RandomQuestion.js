@@ -77,54 +77,63 @@ export default class RandomQuestion extends React.Component {
     }
 
     handleClick = () => {
+        if (this.state.clickState === 'active' && this.state.total === 10) {
         this.setState({ selectedQuote: this.state.QuoteList[Math.floor(Math.random() * this.state.QuoteList.length)] })
         this.setState({ answer: '' })
         this.setState({ clickState: "not-active" })
-        if (this.state.clickState === 'active' && this.state.total === 10) {
         this.setState({ total: 0});
         this.setState({ correctAnswers: 0});
+        } else if
+        (this.state.clickState === 'active' && this.state.total < 10) {
+        this.setState({ selectedQuote: this.state.QuoteList[Math.floor(Math.random() * this.state.QuoteList.length)] })
+        this.setState({ answer: '' })
+        this.setState({ clickState: "not-active" })
         }
     }
 
     handleClickMichael = () => {
-        this.setState({ total: this.state.total + 1 });
-        this.setState({ clickState: "active"});
         if (this.state.selectedQuote.name === "Michael" && this.state.clickState === "not-active") { 
             this.setState({ answer: "Correct" });
             this.setState({ correctAnswers: this.state.correctAnswers + 1 });
+            this.setState({ total: this.state.total + 1 });
+            this.setState({ clickState: "active"});
         } else if (this.state.selectedQuote.name === "Ricky" && this.state.clickState === "not-active") {
             this.setState({ answer: "Wrong"})
+            this.setState({ total: this.state.total + 1 });
+            this.setState({ clickState: "active"});
         }
     }
 
     handleClickRicky = () => {
-        this.setState({ total: this.state.total + 1 });
-        this.setState({ clickState: "active"});
         if (this.state.selectedQuote.name === "Ricky" && this.state.clickState === "not-active") { 
             this.setState({ answer: "Correct" });
             this.setState({ correctAnswers: this.state.correctAnswers + 1 });
+            this.setState({ total: this.state.total + 1 });
+            this.setState({ clickState: "active"});
         } else if (this.state.selectedQuote.name === "Michael" && this.state.clickState === "not-active") { 
             this.setState({ answer: "Wrong"});
+            this.setState({ total: this.state.total + 1 });
+            this.setState({ clickState: "active"});
         }
     }
     
     render() {
         return(
             <div className="app">
-                <h1>Who Said It? Michael Scott or Ricky</h1>
+                <h1>Who Said It?<br />Michael Scott or Ricky</h1>
                 <h2>Best of 10!</h2>
                 <div className="row-container">
                     <img className="mike" src={Mike} alt="Michael Scott"></img>
                     <img className="ricky" src={Ricky} alt="Ricky"></img>
                 </div>
-                <p>Next Quote: "{this.state.selectedQuote.quote}"</p>
-                <button onClick={this.handleClick}>New Quote</button>
                 <div className="row-container">
                     <button onClick={this.handleClickMichael}>Michael</button>
                     <button onClick={this.handleClickRicky}>Ricky</button>
                 </div>
+                <p>Quote: "{this.state.selectedQuote.quote}"</p>
+                <button className="quote-button" onClick={this.handleClick}>New Quote</button>
                 <p>{this.state.answer}</p>
-                <p>Your score is: {this.state.correctAnswers} of {this.state.total}</p>
+                <p className="score">Your score is: {this.state.correctAnswers} of {this.state.total}</p>
             </div>
         )
     }
