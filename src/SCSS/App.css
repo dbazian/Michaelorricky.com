@@ -17,18 +17,31 @@ html body .app {
 }
 
 html body .app h1 {
-  font-size: 8vw;
-  margin-bottom: 1rem;
+  font-size: 6vw;
+  margin-bottom: .5rem;
   font-family: "itc-american-typewriter", "serif";
   font-weight: 500;
   font-style: normal;
 }
 
+@media (min-width: 550px) and (orientation: landscape) {
+  html body .app h1 {
+    font-size: 2rem;
+  }
+}
+
 html body .app h2 {
-  font-size: 7vw;
+  font-size: 4vw;
   font-family: "itc-american-typewriter", "serif";
   font-weight: 500;
   font-style: normal;
+  margin: 0 0 .5rem 0;
+}
+
+@media (min-width: 550px) and (orientation: landscape) {
+  html body .app h2 {
+    font-size: 1.8rem;
+  }
 }
 
 html body .app .row-container {
@@ -44,8 +57,14 @@ html body .app .row-container {
 }
 
 html body .app .row-container img {
-  width: 45%;
+  width: 30%;
   display: inline-block;
+}
+
+@media (min-width: 550px) and (orientation: landscape) {
+  html body .app .row-container img {
+    width: 20%;
+  }
 }
 
 html body .app .row-container .mike {
@@ -53,12 +72,18 @@ html body .app .row-container .mike {
 }
 
 html body .app p {
-  font-size: 5vw;
+  font-size: 3vw;
   text-align: center;
   padding: 0.5rem;
   font-family: "itc-american-typewriter", "serif";
   font-weight: 500;
   font-style: normal;
+}
+
+@media (min-width: 550px) and (orientation: landscape) {
+  html body .app p {
+    font-size: 1rem;
+  }
 }
 
 html body .app .mikericky-button {
@@ -72,37 +97,33 @@ html body .app .mikericky-button {
 }
 
 html body .app .score {
-  position: absolute;
-  bottom: 15%;
   text-align: center;
-  width: 100vw;
   margin: 0;
 }
 
+html body .app .quote-box {
+  height: 17vh;
+}
+
+html body .app .answer-container {
+  height: 5vh;
+}
+
 button {
-  width: 35%;
+  width: 30%;
   height: 5vh;
   border: black 1px solid;
   -webkit-box-shadow: 1px 2px;
           box-shadow: 1px 2px;
-  margin: 1rem;
+  margin: .5rem;
   font-family: "itc-american-typewriter", "serif";
   font-weight: 500;
   font-style: normal;
 }
 
-.quote-button {
-  width: 35%;
-  height: 5vh;
-  border: black 1px solid;
-  -webkit-box-shadow: 1px 2px;
-          box-shadow: 1px 2px;
-  margin-left: -17.5%;
-  font-family: "itc-american-typewriter", "serif";
-  font-weight: 500;
-  font-style: normal;
-  position: absolute;
-  bottom: 20%;
-  left: 50%;
+@media (min-width: 550px) and (orientation: landscape) {
+  button {
+    width: 20%;
+  }
 }
 /*# sourceMappingURL=App.css.map */

@@ -1,3 +1,5 @@
+@import "helpers/mixins";
+
 html {
   font-size: 16px;
   height: 100%;
@@ -14,18 +16,22 @@ html {
       height: 100vh;
 
       h1 {
-        font-size: 8vw;
-        margin-bottom: 1rem;
+        font-size: 6vw;
+        margin-bottom: .5rem;
         font-family: "itc-american-typewriter", "serif";
         font-weight: 500;
         font-style: normal;
+        @include for-size(desktop) { font-size: 2rem; }
       }
 
       h2 {
-        font-size: 7vw;
+        font-size: 4vw;
         font-family: "itc-american-typewriter", "serif";
         font-weight: 500;
         font-style: normal;
+        margin: 0 0 .5rem 0;
+        @include for-size(desktop) { font-size: 1.8rem; }
+
       }
 
       .row-container {
@@ -34,8 +40,10 @@ html {
         align-items: center;
 
         img {
-          width: 45%;
+          width: 30%;
           display: inline-block;
+          @include for-size(desktop) { width: 20% }
+
         }
 
         .mike {
@@ -44,12 +52,14 @@ html {
       }
 
       p {
-        font-size: 5vw;
+        font-size: 3vw;
         text-align: center;
         padding: 0.5rem;
         font-family: "itc-american-typewriter", "serif";
         font-weight: 500;
         font-style: normal;
+        @include for-size(desktop) { font-size: 1rem; }
+
       }
 
       .mikericky-button {
@@ -58,37 +68,32 @@ html {
       }
 
       .score {
-        position: absolute;
-        bottom: 15%;
         text-align: center;
-        width: 100vw;
         margin: 0;
+      }
+
+      .quote-box {
+        height: 17vh;
+      }
+
+      .answer-container {
+        height: 5vh;
       }
     }
   }
 }
 
 button {
-  width: 35%;
+  width: 30%;
   height: 5vh;
   border: black 1px solid;
   box-shadow: 1px 2px;
-  margin: 1rem;
+  margin: .5rem;
   font-family: "itc-american-typewriter", "serif";
   font-weight: 500;
   font-style: normal;
+  @include for-size(desktop) { width: 20%; }
+
 }
 
-.quote-button {
-  width: 35%;
-  height: 5vh;
-  border: black 1px solid;
-  box-shadow: 1px 2px;
-  margin-left: -17.5%;
-  font-family: "itc-american-typewriter", "serif";
-  font-weight: 500;
-  font-style: normal;
-  position: absolute;
-  bottom: 20%;
-  left: 50%;
-}
+

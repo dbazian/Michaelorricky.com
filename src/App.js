@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import "./SCSS/App.css"
 import RandomQuestion from './RandomQuestion';
 
 function App() {

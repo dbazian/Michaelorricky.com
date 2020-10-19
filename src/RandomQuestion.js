@@ -130,9 +130,13 @@ export default class RandomQuestion extends React.Component {
                     <button onClick={this.handleClickMichael}>Michael</button>
                     <button onClick={this.handleClickRicky}>Ricky</button>
                 </div>
+                <div className="quote-box">
                 <p>Quote: "{this.state.selectedQuote.quote}"</p>
+                </div>
                 <button className="quote-button" onClick={this.handleClick}>New Quote</button>
+                <div className="answer-container">
                 <p>{this.state.answer}</p>
+                </div>
                 <p className="score">Your score is: {this.state.correctAnswers} of {this.state.total}</p>
             </div>
         )
